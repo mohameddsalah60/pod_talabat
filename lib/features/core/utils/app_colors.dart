@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color mainBlue = Color(0xFF247CFF);
+  static const Color primaryOrange = Color(0xFFFF6B00);
+  static const Color primaryOrangeHover = Color(0xFFE05E00);
+  static const Color orangeLight = Color(0xFFFFF0E6);
+  static const Color glassBackground = Color(0x1AFFFFFF); // Semi-transparent for glassmorphism
+  static const Color glassBorder = Color(0x33FFFFFF);
+  static const Color textDark = Color(0xFF1E1E24);
+  static const Color textMuted = Color(0xFF6B7280);
   static const Color secondary = Color(0xFF03DAC6);
   static const Color backgroundScaffold = Colors.white;
   static const Color grey = Color(0xFF757575);

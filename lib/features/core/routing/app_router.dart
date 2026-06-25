@@ -6,6 +6,9 @@ import 'app_routes.dart';
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case AppRoutes.landing:
+        return MaterialPageRoute(builder: (context) => const DashboardView());
+
       case AppRoutes.dashboard:
         return MaterialPageRoute(builder: (context) => const DashboardView());
 
