@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/theme/app_theme.dart';
 import 'features/core/routing/app_router.dart';
 import 'features/core/routing/app_routes.dart';
-import 'features/core/utils/app_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           initialRoute: AppRoutes.landing,
           onGenerateRoute: AppRouter.onGenerateRoute,
           debugShowCheckedModeBanner: false,
-          title: 'Salahia',
+          title: 'POD Talabat',
           themeMode: ThemeMode.light,
           locale: const Locale('en'),
           builder: (context, child) {
@@ -32,25 +32,7 @@ class MyApp extends StatelessWidget {
               child: child ?? const SizedBox.shrink(),
             );
           },
-          theme: ThemeData(
-            fontFamily: 'Cairo',
-            primaryColor: AppColors.mainBlue,
-            scaffoldBackgroundColor: AppColors.white,
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: AppColors.mainBlue,
-              brightness: Brightness.light,
-            ),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.mainBlue,
-                foregroundColor: AppColors.white,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-              ),
-            ),
-          ),
+          theme: AppTheme.lightTheme(),
         );
       },
     );

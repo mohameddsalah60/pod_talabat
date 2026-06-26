@@ -4,6 +4,7 @@ class AppRoutes {
   static const String dashboard = '/dashboard';
   static const String onboarding = '/onboarding';
   static const String login = '/sign-in';
+  static const String createInvoice = '/createInvoice';
   static const String signUpView = '/signUpView';
   static const String forgetPassword = '/forgetPassword';
   static const String home = '/home';
