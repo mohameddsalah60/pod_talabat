@@ -34,10 +34,7 @@ class TransferInvoicePdfGenerator {
         pw.Page(
           pageFormat: PdfPageFormat.a4,
           margin: const pw.EdgeInsets.symmetric(horizontal: 36, vertical: 32),
-          theme: pw.ThemeData.withFont(
-            base: _regular!,
-            bold: _bold!,
-          ),
+          theme: pw.ThemeData.withFont(base: _regular!, bold: _bold!),
           build: (context) {
             return pw.Column(
               crossAxisAlignment: pw.CrossAxisAlignment.stretch,
@@ -72,26 +69,24 @@ class TransferInvoicePdfGenerator {
                           : pw.BorderRadius.zero,
                     ),
                     child: pw.Column(
-                      children: pageRows.asMap().entries.map(
-                        (entry) {
-                          final isLastRowOnPage =
-                              entry.key == pageRows.length - 1;
-                          return _buildTableRow(
-                            entry.value,
-                            entry.key.isEven,
-                            isLastRow: isLastPage && isLastRowOnPage,
-                          );
-                        },
-                      ).toList(),
+                      children: pageRows.asMap().entries.map((entry) {
+                        final isLastRowOnPage =
+                            entry.key == pageRows.length - 1;
+                        return _buildTableRow(
+                          entry.value,
+                          entry.key.isEven,
+                          isLastRow: isLastPage && isLastRowOnPage,
+                        );
+                      }).toList(),
                     ),
                   ),
                 pw.Spacer(),
                 if (isLastPage) ...[
                   pw.SizedBox(height: 20),
-                  pw.Align(
-                    alignment: pw.Alignment.centerRight,
-                    child: _buildSummaryCard(invoice),
-                  ),
+                  // pw.Align(
+                  //   alignment: pw.Alignment.centerRight,
+                  //   child: _buildSummaryCard(invoice),
+                  // ),
                 ],
               ],
             );
@@ -146,33 +141,6 @@ class TransferInvoicePdfGenerator {
     return pw.Row(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
-        pw.Expanded(
-          flex: 3,
-          child: pw.Row(
-            children: [
-              _buildLogo(),
-              pw.SizedBox(width: 12),
-              pw.Column(
-                crossAxisAlignment: pw.CrossAxisAlignment.start,
-                children: [
-                  _text(
-                    'WareFlow',
-                    size: 18,
-                    weight: _PdfFontWeight.bold,
-                    color: _PdfColors.textDark,
-                  ),
-                  pw.SizedBox(height: 2),
-                  _text(
-                    'Transfer Invoice',
-                    size: 10,
-                    weight: _PdfFontWeight.semiBold,
-                    color: _PdfColors.orange,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
         pw.Expanded(
           flex: 4,
           child: pw.Center(
@@ -272,20 +240,16 @@ class TransferInvoicePdfGenerator {
         children: [
           pw.Row(
             children: [
-              pw.Expanded(child: _infoField('Batch ID', invoice.batchId)),
+              pw.Expanded(child: _infoField('ST Number', invoice.batchId)),
               pw.Expanded(child: _infoField('Store', invoice.store)),
-              pw.Expanded(child: _infoField('Created By', invoice.createdBy)),
+              pw.Expanded(child: _infoField('Received By', invoice.createdBy)),
             ],
           ),
           pw.SizedBox(height: 12),
           pw.Row(
             children: [
-              pw.Expanded(
-                child: _infoField('Date', invoice.formattedDate),
-              ),
-              pw.Expanded(
-                child: _infoField('Time', invoice.formattedTime),
-              ),
+              pw.Expanded(child: _infoField('Date', invoice.formattedDate)),
+              pw.Expanded(child: _infoField('Time', invoice.formattedTime)),
               pw.Spacer(flex: 1),
             ],
           ),
@@ -395,11 +359,7 @@ class TransferInvoicePdfGenerator {
         ),
       ),
       child: pw.Center(
-        child: _text(
-          'No items added',
-          size: 11,
-          color: _PdfColors.textMuted,
-        ),
+        child: _text('No items added', size: 11, color: _PdfColors.textMuted),
       ),
     );
   }
@@ -520,11 +480,7 @@ class TransferInvoicePdfGenerator {
     );
   }
 
-  pw.Widget _summaryRow(
-    String label,
-    String value, {
-    bool highlight = false,
-  }) {
+  pw.Widget _summaryRow(String label, String value, {bool highlight = false}) {
     return pw.Row(
       mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
       children: [

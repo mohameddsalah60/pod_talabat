@@ -30,9 +30,9 @@ class DocumentInfoSection extends StatelessWidget {
               children: [
                 Expanded(
                   child: WareFlowTextField(
-                    label: 'Batch ID',
+                    label: 'ST Number',
                     value: state.batchId,
-                    hintText: 'Enter batch ID',
+                    hintText: 'Enter ST Number',
                     onChanged: cubit.updateBatchId,
                   ),
                 ),
@@ -53,7 +53,7 @@ class DocumentInfoSection extends StatelessWidget {
               children: [
                 Expanded(
                   child: WareFlowTextField(
-                    label: 'Created By',
+                    label: 'Received By',
                     value: state.submittedBy,
                     hintText: 'Enter your name',
                     onChanged: cubit.updateSubmittedBy,

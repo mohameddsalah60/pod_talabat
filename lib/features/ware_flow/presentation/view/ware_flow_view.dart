@@ -36,10 +36,7 @@ class _WareFlowBody extends StatelessWidget {
           const _BackgroundDecorations(),
           SafeArea(
             child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(
-                horizontal: 48.w,
-                vertical: 32.h,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 48.w, vertical: 32.h),
               child: Center(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 1340.w),

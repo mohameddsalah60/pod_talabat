@@ -104,18 +104,6 @@ class WareFlowBottomBar extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _WareFlowActionButton(
-                label: 'Save Draft',
-                icon: Icons.save_outlined,
-                isPrimary: false,
-                isLoading: isSavingDraft,
-                enabled: !state.isSaving,
-                onPressed: () => _handleSave(
-                  context,
-                  WareFlowSaveAction.draft,
-                  cubit.saveAsDraft,
-                ),
-              ),
               SizedBox(width: 14.w),
               _WareFlowActionButton(
                 label: 'Save & Print',
@@ -192,10 +180,7 @@ class _WareFlowActionButtonState extends State<_WareFlowActionButton> {
                           ? const Color(0xFFFF5500)
                           : const Color(0xFFFF6B00),
                     ]
-                  : [
-                      AppColors.greyBorder,
-                      AppColors.greyBorder,
-                    ],
+                  : [AppColors.greyBorder, AppColors.greyBorder],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
             ),
@@ -239,11 +224,7 @@ class _WareFlowActionButtonState extends State<_WareFlowActionButton> {
                         ),
                       )
                     else
-                      Icon(
-                        widget.icon,
-                        size: 18.sp,
-                        color: AppColors.white,
-                      ),
+                      Icon(widget.icon, size: 18.sp, color: AppColors.white),
                     SizedBox(width: 10.w),
                     Text(
                       widget.label,

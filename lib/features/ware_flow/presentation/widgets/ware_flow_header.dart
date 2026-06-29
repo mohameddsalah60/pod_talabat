@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
@@ -11,35 +12,16 @@ class WareFlowHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            _LogoBadge(),
-            SizedBox(width: 16.w),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'WareFlow',
-                  style: TextStyle(
-                    fontSize: 22.sp,
-                    fontWeight: FontWeight.w800,
-                    color: AppColors.textDark,
-                    letterSpacing: -0.5,
-                  ),
-                ),
-                Text(
-                  'Transfer Invoice',
-                  style: TextStyle(
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.primaryOrange,
-                    letterSpacing: 0.5,
-                  ),
-                ),
-              ],
-            ),
-          ],
+        SvgPicture.asset(
+          'svg/talabat.svg',
+          width: 200.w,
+          height: 100.h,
+          colorFilter: ColorFilter.mode(
+            AppColors.primaryOrange,
+            BlendMode.srcIn,
+          ),
         ),
+
         SizedBox(height: 32.h),
         Text(
           'Create Transfer Invoice',
