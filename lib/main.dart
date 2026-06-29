@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          initialRoute: AppRoutes.landing,
+          initialRoute: AppRoutes.createInvoice,
           onGenerateRoute: AppRouter.onGenerateRoute,
           debugShowCheckedModeBanner: false,
           title: 'POD Talabat',
