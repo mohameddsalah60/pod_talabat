@@ -431,82 +431,6 @@ class TransferInvoicePdfGenerator {
     );
   }
 
-  pw.Widget _buildSummaryCard(TransferInvoice invoice) {
-    return pw.Container(
-      width: 240,
-      padding: const pw.EdgeInsets.all(16),
-      decoration: pw.BoxDecoration(
-        color: PdfColors.white,
-        borderRadius: pw.BorderRadius.circular(10),
-        border: pw.Border.all(color: _PdfColors.greyBorder),
-      ),
-      child: pw.Column(
-        crossAxisAlignment: pw.CrossAxisAlignment.start,
-        children: [
-          pw.Row(
-            children: [
-              pw.Container(
-                width: 14,
-                height: 14,
-                decoration: pw.BoxDecoration(
-                  color: _PdfColors.orangeLight,
-                  borderRadius: pw.BorderRadius.circular(3),
-                ),
-              ),
-              pw.SizedBox(width: 6),
-              _text(
-                'Invoice Summary',
-                size: 11,
-                weight: _PdfFontWeight.bold,
-                color: _PdfColors.textDark,
-              ),
-            ],
-          ),
-          pw.SizedBox(height: 14),
-          _summaryRow('Total Products', invoice.totalProducts.toString()),
-          pw.SizedBox(height: 10),
-          _summaryRow(
-            'Total Received Quantity',
-            invoice.totalReceivedQuantity.toString(),
-          ),
-          pw.SizedBox(height: 10),
-          _summaryRow(
-            'Total Quantity',
-            invoice.totalQuantity.toString(),
-            highlight: true,
-          ),
-        ],
-      ),
-    );
-  }
-
-  pw.Widget _summaryRow(String label, String value, {bool highlight = false}) {
-    return pw.Row(
-      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-      children: [
-        _text(
-          label,
-          size: 10,
-          color: _PdfColors.textMuted,
-          weight: _PdfFontWeight.semiBold,
-        ),
-        pw.Container(
-          padding: const pw.EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-          decoration: pw.BoxDecoration(
-            color: highlight ? _PdfColors.orangeLight : _PdfColors.rowAlt,
-            borderRadius: pw.BorderRadius.circular(6),
-          ),
-          child: _text(
-            value,
-            size: 11,
-            weight: _PdfFontWeight.bold,
-            color: highlight ? _PdfColors.orange : _PdfColors.textDark,
-          ),
-        ),
-      ],
-    );
-  }
-
   pw.Widget _text(
     String value, {
     required double size,
@@ -566,7 +490,6 @@ enum _PdfFontWeight { regular, semiBold, bold }
 class _PdfColors {
   static final orange = PdfColor.fromHex('#FF6B00');
   static final orangeMid = PdfColor.fromHex('#FF8A1F');
-  static final orangeLight = PdfColor.fromHex('#FFF0E6');
   static final textDark = PdfColor.fromHex('#1E1E24');
   static final textMuted = PdfColor.fromHex('#6B7280');
   static final greyBorder = PdfColor.fromHex('#EDEDED');

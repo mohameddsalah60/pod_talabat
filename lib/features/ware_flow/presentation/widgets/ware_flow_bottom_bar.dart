@@ -82,8 +82,6 @@ class WareFlowBottomBar extends StatelessWidget {
     return BlocBuilder<WareFlowCubit, WareFlowState>(
       builder: (context, state) {
         final cubit = context.read<WareFlowCubit>();
-        final isSavingDraft =
-            state.isSaving && state.savingAction == WareFlowSaveAction.draft;
         final isSavingPrint =
             state.isSaving && state.savingAction == WareFlowSaveAction.print;
 
